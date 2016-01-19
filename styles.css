@@ -5,7 +5,10 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  background-image: url("images/a-groovy-looking-nightclub-dance-floor-background.jpg");
+  background-size: cover;
 }
+
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
@@ -15,25 +18,131 @@ body, a:link, a:visited, a:active{
 }
 .topbar{
   height:32px;
-  background-color: #555;
+  background-color: black;
 }
 .title{
-  background-color: #777;
-}
-.dancer{
-  border:10px solid red;
-  border-radius:10px;
-  position:absolute;
+  background-color: black;
 }
 
-.new{
-  border:5px solid green;
-  border-radius:0px;
-  position:absolute;
+.blinky{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+.blinky:before,
+.blinky:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    border: 20px solid red;
+    -moz-border-radius: 50px 50px 0 50px;
+         border-radius: 50px 50px 0 50px;
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+         -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+.blinky:after {
+    left: auto;
+    right: 0;
+    -moz-border-radius: 50px 50px 50px 0;
+         border-radius: 50px 50px 50px 0;
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
 }
 
-.fat{
-  border:25px solid yellow;
-  border-radius:10px;
-  position:absolute;
+.pacman{
+  width: 0px;
+  height: 0px;
+  border-right: 40px solid transparent;
+  border-top: 40px solid yellow;
+  border-left: 40px solid yellow;
+  border-bottom: 40px solid yellow;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  position: absolute;
+}
+
+.space{
+  box-shadow:
+    0 0 0 1em white,
+    0 1em 0 1em white,
+    -2.5em 1.5em 0 .5em white,
+    2.5em 1.5em 0 .5em white,
+    -3em -3em 0 0 white,
+    3em -3em 0 0 white,
+    -2em -2em 0 0 white,
+    2em -2em 0 0 white,
+    -3em -1em 0 0 white,
+    -2em -1em 0 0 white,
+    2em -1em 0 0 white,
+    3em -1em 0 0 white,
+    -4em 0 0 0 white,
+    -3em 0 0 0 white,
+    3em 0 0 0 white,
+    4em 0 0 0 white,
+    -5em 1em 0 0 white,
+    -4em 1em 0 0 white,
+    4em 1em 0 0 white,
+    5em 1em 0 0 white,
+    -5em 2em 0 0 white,
+    5em 2em 0 0 white,
+    -5em 3em 0 0 white,
+    -3em 3em 0 0 white,
+    3em 3em 0 0 white,
+    5em 3em 0 0 white,
+    -2em 4em 0 0 white,
+    -1em 4em 0 0 white,
+    1em 4em 0 0 white,
+    2em 4em 0 0 white;
+  background: white;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  margin: 50px 0 70px 65px;
+  position: absolute;
+}
+
+.yin {
+  width: 96px;
+  height: 48px;
+  background: #eee;
+  border-color: red;
+  border-style: solid;
+  border-width: 2px 2px 50px 2px;
+  border-radius: 100%;
+  position: absolute;
+}
+
+.yin:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background: #eee;
+  border: 18px solid red;
+  border-radius: 100%;
+  width: 12px;
+  height: 12px;
+}
+
+.yin:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: red;
+  border: 18px solid #eee;
+  border-radius:100%;
+  width: 12px;
+  height: 12px;
 }
