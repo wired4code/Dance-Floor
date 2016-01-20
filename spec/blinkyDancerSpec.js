@@ -13,11 +13,23 @@ describe("blinkyDancer", function() {
     expect(blinkyDancer.$node).to.be.an.instanceof(jQuery);
   });
 
+  it("should have a top property", function(){
+    expect(blinkyDancer.top).to.be.equal(10);
+  });
+
+  it("should have a left property", function(){
+    expect(blinkyDancer.left).to.be.equal(20);
+  });
+
   it("should have a step function that makes its node blink", function() {
     sinon.spy(blinkyDancer.$node, 'toggle');
     blinkyDancer.step();
     expect(blinkyDancer.$node.toggle.called).to.be.true;
   });
+
+  it("should have a className of blinky", function() {
+    expect(blinkyDancer.$node[0].className).to.be.equal("blinky");
+  })
 
   describe("dance", function(){
     it("should call step at least once per second", function(){
