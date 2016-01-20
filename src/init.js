@@ -31,4 +31,8 @@ $(document).ready(function(){
     window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
+
+  $('.lineup').on("click", function() {
+    Dancer.prototype.lineUp();
+  });
 });
