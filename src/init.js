@@ -23,7 +23,7 @@ $(document).ready(function(){
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
+      (($("body").height() / 2) * Math.random() + 350),
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
@@ -34,5 +34,9 @@ $(document).ready(function(){
 
   $('.lineup').on("click", function() {
     Dancer.prototype.lineUp();
+  });
+
+  $('.clear').on("click", function() {
+    $('body > span').remove();
   });
 });
