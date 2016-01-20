@@ -2,34 +2,40 @@ $(document).ready(function(){
   window.dancers = [];
 
   $(".addDancerButton").on("click", function(event){
-    /* This function sets up the click handlers for the create-dancer
-     * buttons on dancefloor.html. You should only need to make one small change to it.
-     * As long as the "data-dancer-maker-function-name" attribute of a
-     * class="addDancerButton" DOM node matches one of the names of the
-     * maker functions available in the global scope, clicking that node
-     * will call the function to make the dancer.
-     */
-
-    /* dancerMakerFunctionName is a string which must match
-     * one of the dancer maker functions available in global scope.
-     * A new object of the given type will be created and added
-     * to the stage.
-     */
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
 
-    // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
-    // make a dancer with a random position
-
     var dancer = new dancerMakerFunction(
-      (($("body").height() / 2) * Math.random() + 350),
+      (($("body").height() / 2) * Math.random() + 200),
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
 
+    var pacX;
+    var pacY;
+    var x;
+    var y;
+    var distance;
+    if (dancer instanceof PacDancer && dancers.length) {
+      pacX = dancer.left;
+      pacY = dancer.top;
+      dancers.forEach(function(item, idx, array) {
+        if (item.$node[0].className !== "pacman") {
+          x = item.left;
+          y = item.top;
+          distance = Math.sqrt(Math.pow(pacX - x, 2) + Math.pow(pacY - y, 2));
+          if (distance <= 125) {
+            item.$node[0].className += ' hidden';
+            array.splice(idx, 1);
+          }
+        }
+      });
+    }
+
     window.dancers.push(dancer);
     $('body').append(dancer.$node);
+    $('.hidden').remove();
   });
 
   $('.lineup').on("click", function() {
@@ -38,5 +44,6 @@ $(document).ready(function(){
 
   $('.clear').on("click", function() {
     $('body > span').remove();
+    window.dancers = [];
   });
 });
